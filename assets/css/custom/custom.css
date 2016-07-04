@@ -1,0 +1,27 @@
+.intro-content a i {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.intro-content a:hover i {
+  color: #fff;
+}
+
+footer.footer {
+  background:
+    /* top, transparent red */
+    linear-gradient(
+      rgba(255, 255, 255, 0.45),
+      rgba(255, 255, 255, 0.45)
+    ),
+    /* your image */
+    url(../../img/bg-footer.jpg) no-repeat center center scroll !important;
+    background-size: cover;
+}
+
+footer, footer a {
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+footer a:hover, footer a:hover i {
+  color: #ef4035 !important;
+}
