@@ -1011,11 +1011,11 @@ footer.footer .social {
 footer.footer .copyright p.small {
   font-size: 14px;
 }
-@media (min-width: 1025px) {
+/*@media (min-width: 1025px) {
   footer.footer {
     background-attachment: fixed;
   }
-}
+}*/
 .btn-outline-light {
   color: white;
   border: 1px solid white;
