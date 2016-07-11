@@ -475,47 +475,49 @@ if (!$errName && !$errEmail && !$errPhone && !$errMessage && !$errHuman) {
 				</div>
 				<div class="row content-row">
 					<div class="col-lg-8 col-lg-offset-2">
-						<form name="sentMessage" id="contactForm" role="form" method ="post" action="index.php" novalidate>
+						<form name="sentMessage" id="contactForm" role="form" method ="post" action="index.php">
 							<div class="row control-group">
 								<div class="form-group col-xs-12 floating-label-form-group controls">
 									<label>Name</label>
-									<input type="text" class="form-control" placeholder="Name" id="name" name="name" required data-validation-required-message="Please enter your name." value="<?php echo htmlspecialchars($_POST['name']); ?>">
-									<p class="help-block text-danger"></p>
+									<input type="text" class="form-control" placeholder="Name" id="name" name="name" value="<?php echo htmlspecialchars($_POST['name']); ?>">
+									<?php echo "<p class='text-danger'>$errName</p>";?>
 								</div>
 							</div>
 							<div class="row control-group">
 								<div class="form-group col-xs-12 floating-label-form-group controls">
 									<label>Email Address</label>
-									<input type="email" class="form-control" placeholder="Email Address" id="email" name="email" required data-validation-required-message="Please enter your email address." value="<?php echo htmlspecialchars($_POST['email']); ?>">
-									<p class="help-block text-danger"></p>
+									<input type="email" class="form-control" placeholder="Email Address" id="email" name="email" value="<?php echo htmlspecialchars($_POST['email']); ?>">
+									<?php echo "<p class='text-danger'>$errEmail</p>";?>
 								</div>
 							</div>
 							<div class="row control-group">
 								<div class="form-group col-xs-12 floating-label-form-group controls">
 									<label>Phone Number</label>
-									<input type="tel" class="form-control" placeholder="Phone Number" id="phone" name="phone" required data-validation-required-message="Please enter your phone number." value="<?php echo htmlspecialchars($_POST['phone']); ?>">
-									<p class="help-block text-danger"></p>
+									<input type="tel" class="form-control" placeholder="Phone Number" id="phone" name="phone" value="<?php echo htmlspecialchars($_POST['phone']); ?>">
+									<?php echo "<p class='text-danger'>$errPhone</p>";?>
 								</div>
 							</div>
 							<div class="row control-group">
 								<div class="form-group col-xs-12 floating-label-form-group controls">
 									<label>Message</label>
-									<textarea rows="5" class="form-control" placeholder="Message" id="message" name="message" required data-validation-required-message="Please enter a message." value="<?php echo htmlspecialchars($_POST['message']); ?>"></textarea>
-									<p class="help-block text-danger"></p>
+									<textarea rows="5" class="form-control" placeholder="Message" id="message" name="message" value="<?php echo htmlspecialchars($_POST['message']); ?>"></textarea>
+									<?php echo "<p class='text-danger'>$errMessage</p>";?>
 								</div>
 							</div>
 							<div class="row control-group">
 								<div class="form-group col-xs-12 floating-label-form-group controls">
 									<label>2 + 3 = ?</label>
-									<input type="text" class="form-control" placeholder="2 + 3 = ?" id="human" name="human" required data-validation-required-message="Please answer the question.">
-									<p class="help-block text-danger"></p>
+									<input type="text" class="form-control" placeholder="2 + 3 = ?" id="human" name="human">
+									<?php echo "<p class='text-danger'>$errHuman</p>";?>
 								</div>
 							</div>
 							<br>
-							<div id="success"></div>
+							<div id="success">
+								<?php echo $result; ?>
+							</div>
 							<div class="row">
 								<div class="form-group col-xs-12">
-									<input id="submit" name="submit" type="submit" value="Send" type="submit" class="btn btn-outline-dark">Send</input>
+									<input id="submit" name="submit" type="submit" value="Send" type="submit" class="btn btn-outline-dark"></input>
 								</div>
 							</div>
 						</form>
