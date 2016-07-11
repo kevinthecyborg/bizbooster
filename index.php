@@ -1,3 +1,51 @@
+<?php
+	if (isset($_POST["submit"])) {
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+    $phone = $_POST['phone'];
+		$message = $_POST['message'];
+		$human = intval($_POST['human']);
+		$from = 'Biz Booster Contact Form';
+		$to = 'kevin@cyborg.ai';
+		$subject = 'New Message from Contact Form';
+
+		$body = "From: $name\n E-Mail: $email\n Message:\n $message";
+
+		// Check if name has been entered
+		if (!$_POST['name']) {
+			$errName = 'Please enter your name';
+		}
+
+		// Check if email has been entered and is valid
+		if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+			$errEmail = 'Please enter a valid email address';
+		}
+
+    //Check if phone has been entered
+		if (!$_POST['phone']) {
+			$errPhone = 'Please enter your phone number';
+		}
+
+		//Check if message has been entered
+		if (!$_POST['message']) {
+			$errMessage = 'Please enter your message';
+		}
+		//Check if simple anti-bot test is correct
+		if ($human !== 5) {
+			$errHuman = 'Your anti-spam is incorrect';
+		}
+
+// If there are no errors, send the email
+if (!$errName && !$errEmail && !$errPhone && !$errMessage && !$errHuman) {
+	if (mail ($to, $subject, $body, $from)) {
+		$result='<div class="alert alert-success">Thank You! We will be in touch.</div>';
+	} else {
+		$result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
+	}
+}
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -31,15 +79,6 @@
 		<!-- Vitality Theme CSS -->
 		<!-- Uncomment the color scheme you want to use. -->
 		<link href="assets/css/vitality-red.css" rel="stylesheet" type="text/css">
-		<!-- <link href="assets/css/vitality-aqua.css" rel="stylesheet" type="text/css"> -->
-		<!-- <link href="assets/css/vitality-blue.css" rel="stylesheet" type="text/css"> -->
-		<!-- <link href="assets/css/vitality-green.css" rel="stylesheet" type="text/css"> -->
-		<!-- <link href="assets/css/vitality-orange.css" rel="stylesheet" type="text/css"> -->
-		<!-- <link href="assets/css/vitality-pink.css" rel="stylesheet" type="text/css"> -->
-		<!-- <link href="assets/css/vitality-purple.css" rel="stylesheet" type="text/css"> -->
-		<!-- <link href="assets/css/vitality-tan.css" rel="stylesheet" type="text/css"> -->
-		<!-- <link href="assets/css/vitality-turquoise.css" rel="stylesheet" type="text/css"> -->
-		<!-- <link href="assets/css/vitality-yellow.css" rel="stylesheet" type="text/css"> -->
 		<!-- IE8 support for HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -436,7 +475,7 @@
 				</div>
 				<div class="row content-row">
 					<div class="col-lg-8 col-lg-offset-2">
-						<form name="sentMessage" id="contactForm" role="form" method ="post" action="sendmail.php" novalidate>
+						<form name="sentMessage" id="contactForm" role="form" method ="post" action="index.php" novalidate>
 							<div class="row control-group">
 								<div class="form-group col-xs-12 floating-label-form-group controls">
 									<label>Name</label>
@@ -476,7 +515,7 @@
 							<div id="success"></div>
 							<div class="row">
 								<div class="form-group col-xs-12">
-									<button id="submit" name="submit" type="submit" value="Send" type="submit" class="btn btn-outline-dark">Send</button>
+									<input id="submit" name="submit" type="submit" value="Send" type="submit" class="btn btn-outline-dark">Send</input>
 								</div>
 							</div>
 						</form>
