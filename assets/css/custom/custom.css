@@ -25,3 +25,7 @@ footer, footer a {
 footer a:hover, footer a:hover i {
   color: #ef4035 !important;
 }
+
+footer.footer p {
+  background: rgba(255, 255, 255, 0.8);;
+}
