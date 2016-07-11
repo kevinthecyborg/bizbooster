@@ -29,3 +29,9 @@ footer a:hover, footer a:hover i {
 footer.footer p {
   background: rgba(255, 255, 255, 0.8);;
 }
+
+#pricing .modal-button {
+  background: none;
+  border: none;
+  color: #ef4035;
+}
