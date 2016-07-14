@@ -35,3 +35,8 @@ footer.footer p {
   border: none;
   color: #ef4035;
 }
+
+.about-carousel .item .caption {
+  color: #fff;
+  text-shadow: 5px 5px 5px #000;
+}
