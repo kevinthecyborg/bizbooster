@@ -38,3 +38,7 @@ section#pricing {
   color: #fff;
   text-shadow: 5px 5px 5px #000;
 }
+
+.nav-logo {
+  padding: 15px 0;
+}
